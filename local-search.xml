@@ -4,26 +4,27 @@
   
   
   <entry>
-    <title>My New Post</title>
-    <link href="/2021/08/12/My-New-Post/"/>
-    <url>/2021/08/12/My-New-Post/</url>
+    <title>Typora for Mac自动上传图片</title>
+    <link href="/2021/11/27/typora%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/"/>
+    <url>/2021/11/27/typora%E8%87%AA%E5%8A%A8%E4%B8%8A%E4%BC%A0%E5%9B%BE%E7%89%87/</url>
     
-    <content type="html"><![CDATA[<blockquote><p>PHP</p></blockquote><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$a</span> = <span class="hljs-number">1</span>;<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="/2021/06/03/hello-world/"/>
-    <url>/2021/06/03/hello-world/</url>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p><a href="https://picgo.github.io/PicGo-Core-Doc/zh/guide/">PicGo-Core</a>是一个开源节点模块，支持图片上传。它还支持插件来扩展其功能。 </p><p><a href="https://sm.ms/">SM.MS</a> 是一个存储图片空间，相对其他平台更容易配置。</p></blockquote><h4 id="PicGo-app-和-PicGo-Core-的区别（命令行）"><a href="#PicGo-app-和-PicGo-Core-的区别（命令行）" class="headerlink" title="PicGo.app 和 PicGo-Core 的区别（命令行）"></a>PicGo.app 和 PicGo-Core 的区别（命令行）</h4><ul><li>PicGo (app) 目前只有中文版本。</li><li>PicGo.app 提供了一个 GUI，因此与 CLI 版本相比更容易设置。</li><li>使用PicGo-Core（命令行）上传消耗的计算资源较少，因为该进程只会在上传过程中运行，上传成功或失败后都会退出。通过 PicGo.app 上传时，PicGo.app 会一直保持运行，不会自动退出。此   外，PicGo.app 是一个电子应用程序，它会消耗更多的计算资源。</li><li>PicGo.app 和 PicGo-Core 使用不同的配置文件，但您可以将<code>picBed</code>PicGo.app 配置文件中 key下的 json 对象复制到 PicGo 的配置文件中。</li><li>PicGo.app 提供了其他功能，如上传历史记录、自动重命名等。</li></ul><h4 id="安装-PicGo-Core"><a href="#安装-PicGo-Core" class="headerlink" title="安装 PicGo-Core"></a>安装 PicGo-Core</h4><blockquote><p>如果您安装了 node 或 yarn，您可以在终端中运行以下命令。</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sh"><span class="hljs-comment"># 安装</span><br>yarn global add picgo <span class="hljs-comment"># 或者 npm install picgo -g</span><br></code></pre></td></tr></table></figure><h4 id="配置-PicGo-Core"><a href="#配置-PicGo-Core" class="headerlink" title="配置 PicGo-Core"></a>配置 PicGo-Core</h4><blockquote><p> 通过 <code>picgo set uploader</code> 来进入交互式命令行，配置成功后会自动生成配置文件，无需复制粘贴！</p></blockquote><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs sh">$ picgo <span class="hljs-built_in">set</span> uploader<br>? Choose a(n) uploader (Use arrow keys)<br>❯ smms<br>  tcyun<br>  github<br>  qiniu<br>  imgur<br>  aliyun<br>  upyun<br>(Move up and down to reveal more choices)<br><br></code></pre></td></tr></table></figure><p><strong>这里使用<a href="https://sm.ms/">smms</a> 前往平台注册获取Token。</strong></p><p><img src="https://i.loli.net/2021/11/27/YfmcSedjBGkDlR9.png"></p><blockquote><p><strong>注意</strong></p><p>同时，填好图床配置之后，请务必通过 <code>picgo use uploader</code> 选择当前要使用的 <code>Uploader</code>。</p></blockquote><h4 id="配置Typora集成PicGo-Core"><a href="#配置Typora集成PicGo-Core" class="headerlink" title="配置Typora集成PicGo-Core"></a>配置Typora集成PicGo-Core</h4><ul><li><p>打开Typora,偏好设置-&gt;图像设置</p></li><li><p>自定义命令: node命令路径 picgo命令路径 upload, 如: <strong>/opt/homebrew/bin/node /opt/homebrew/bin/picgo upload,</strong> 可以通过<code>which node</code>和<code>which picgo</code> 获取路径</p></li></ul><p><img src="https://i.loli.net/2021/11/27/FG4zq2XCtZJkygA.png"></p>]]></content>
     
     
+    <categories>
+      
+      <category>软件配置</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Mac</tag>
+      
+      <tag>Typora</tag>
+      
+    </tags>
     
   </entry>
   
